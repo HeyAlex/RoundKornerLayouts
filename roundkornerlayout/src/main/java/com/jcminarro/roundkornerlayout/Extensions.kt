@@ -17,7 +17,6 @@ internal fun View.updateOutlineProvider(cornerRadius: Float) {
     }
 }
 
-
 internal fun Path.addRoundRectWithRoundCorners(rectF: RectF, cornersHolder: CornersHolder) {
     addRoundRectWithRoundCorners(
             rectF,

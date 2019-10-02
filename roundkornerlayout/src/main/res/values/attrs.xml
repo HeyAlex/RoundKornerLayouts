@@ -8,6 +8,11 @@
         <attr name="top_right_corner_radius"/>
         <attr name="bottom_right_corner_radius"/>
         <attr name="bottom_left_corner_radius"/>
+
+        <attr name="top_start_corner_radius"/>
+        <attr name="top_end_corner_radius"/>
+        <attr name="bottom_start_corner_radius"/>
+        <attr name="bottom_end_corner_radius"/>
     </declare-styleable>
 
     <declare-styleable name="RoundKornerLinearLayout">
@@ -16,6 +21,11 @@
         <attr name="top_right_corner_radius"/>
         <attr name="bottom_right_corner_radius"/>
         <attr name="bottom_left_corner_radius"/>
+
+        <attr name="top_start_corner_radius"/>
+        <attr name="top_end_corner_radius"/>
+        <attr name="bottom_start_corner_radius"/>
+        <attr name="bottom_end_corner_radius"/>
     </declare-styleable>
 
     <declare-styleable name="RoundKornerRelativeLayout">
@@ -24,5 +34,10 @@
         <attr name="top_right_corner_radius"/>
         <attr name="bottom_right_corner_radius"/>
         <attr name="bottom_left_corner_radius"/>
+
+        <attr name="top_start_corner_radius"/>
+        <attr name="top_end_corner_radius"/>
+        <attr name="bottom_start_corner_radius"/>
+        <attr name="bottom_end_corner_radius"/>
     </declare-styleable>
 </resources>

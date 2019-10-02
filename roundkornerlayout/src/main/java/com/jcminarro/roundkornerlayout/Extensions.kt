@@ -1,6 +1,5 @@
 package com.jcminarro.roundkornerlayout
 
-import android.content.res.TypedArray
 import android.graphics.Path
 import android.graphics.RectF
 import android.os.Build
@@ -17,6 +16,7 @@ internal fun View.updateOutlineProvider(cornerRadius: Float) {
         outlineProvider = RoundOutlineProvider(cornerRadius)
     }
 }
+
 
 internal fun Path.addRoundRectWithRoundCorners(rectF: RectF, cornersHolder: CornersHolder) {
     addRoundRectWithRoundCorners(
@@ -46,25 +46,5 @@ internal fun Path.addRoundRectWithRoundCorners(rectF: RectF,
                     bottomLeftCornerRadius
             ),
             Path.Direction.CW
-    )
-}
-
-internal fun TypedArray.getCornerRadius(attrCornerRadius: Int,
-                                        attrTopLeftCornerRadius: Int,
-                                        attrTopRightCornerRadius: Int,
-                                        attrBottomRightCornerRadius: Int,
-                                        attrBottomLeftCornerRadius: Int
-): CornersHolder {
-    val cornerRadius = getDimension(attrCornerRadius, 0f)
-    val topLeftCornerRadius = getDimension(attrTopLeftCornerRadius, cornerRadius)
-    val topRightCornerRadius = getDimension(attrTopRightCornerRadius, cornerRadius)
-    val bottomRightCornerRadius = getDimension(attrBottomRightCornerRadius, cornerRadius)
-    val bottomLeftCornerRadius = getDimension(attrBottomLeftCornerRadius, cornerRadius)
-
-    return CornersHolder(
-            topLeftCornerRadius,
-            topRightCornerRadius,
-            bottomRightCornerRadius,
-            bottomLeftCornerRadius
     )
 }

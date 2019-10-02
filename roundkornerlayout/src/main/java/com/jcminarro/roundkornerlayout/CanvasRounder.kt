@@ -56,7 +56,7 @@ internal class CanvasRounder(private val cornersHolder: CornersHolder) {
     }
 
     fun updateSize(currentWidth: Int, currentHeight: Int) {
-        rectF = android.graphics.RectF(0f, 0f, currentWidth.toFloat(), currentHeight.toFloat())
+        rectF = RectF(0f, 0f, currentWidth.toFloat(), currentHeight.toFloat())
         resetPath()
     }
 

@@ -10,17 +10,11 @@ class RoundKornerFrameLayout
 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
         FrameLayout(context, attrs, defStyleAttr) {
     private val canvasRounder: CanvasRounder
+    private val cornerRadiusDelegate: CornerRadiusDelegate = CornerRadiusDelegate(this)
 
     init {
         val array = context.obtainStyledAttributes(attrs, R.styleable.RoundKornerFrameLayout, 0, 0)
-
-        val cornersHolder = array.getCornerRadius(
-                R.styleable.RoundKornerFrameLayout_corner_radius,
-                R.styleable.RoundKornerFrameLayout_top_left_corner_radius,
-                R.styleable.RoundKornerFrameLayout_top_right_corner_radius,
-                R.styleable.RoundKornerFrameLayout_bottom_right_corner_radius,
-                R.styleable.RoundKornerFrameLayout_bottom_left_corner_radius
-        )
+        val cornersHolder = cornerRadiusDelegate.getCornerRadius(array)
 
         array.recycle()
         canvasRounder = CanvasRounder(cornersHolder)
@@ -40,23 +34,7 @@ class RoundKornerFrameLayout
     override fun dispatchDraw(canvas: Canvas) = canvasRounder.round(canvas) { super.dispatchDraw(it)}
 
     fun setCornerRadius(cornerRadius: Float, cornerType: CornerType = CornerType.ALL) {
-        when (cornerType) {
-            CornerType.ALL -> {
-                canvasRounder.cornerRadius = cornerRadius
-            }
-            CornerType.TOP_LEFT -> {
-                canvasRounder.topLeftCornerRadius = cornerRadius
-            }
-            CornerType.TOP_RIGHT -> {
-                canvasRounder.topRightCornerRadius = cornerRadius
-            }
-            CornerType.BOTTOM_RIGHT -> {
-                canvasRounder.bottomRightCornerRadius = cornerRadius
-            }
-            CornerType.BOTTOM_LEFT -> {
-                canvasRounder.bottomLeftCornerRadius = cornerRadius
-            }
-        }
+        cornerRadiusDelegate.fillCornerRounder(canvasRounder, cornerRadius, cornerType)
         updateOutlineProvider(cornerRadius)
         invalidate()
     }

@@ -42,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:corner_radius="16dp">
+            app:top_end_corner_radius="16dp"
+            app:bottom_start_corner_radius="16dp">
 
             <ImageView
                 android:layout_width="match_parent"
